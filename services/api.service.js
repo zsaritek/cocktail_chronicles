@@ -22,7 +22,7 @@ class ApiService {
 
         return this.api.get(`/lookup.php?i=${cocktailId}`);
     }
-    }
+}
 
 
 
