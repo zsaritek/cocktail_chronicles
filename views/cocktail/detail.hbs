@@ -1,0 +1,10 @@
+<div>
+    <h1>{{name}}</h1>
+    <p>{{recipe}}</p>
+    <img src="{{image}}" alt="{{name}}" />
+    <ul>
+        {{#each ingredients}}
+        <li>{{this.ingredient}} - {{this.measurement}}</li>
+        {{/each}}
+    </ul>
+</div>
