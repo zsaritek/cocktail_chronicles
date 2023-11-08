@@ -10,6 +10,56 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 //GET cocktail/:id 
 
+
+
+router.get("/random", async (req, res, next) => {
+    try {
+       
+        const randomC = await apiService.getRandomCocktail();
+        const randomCocktail = new Cocktail(randomC.data.drinks[0])
+        
+        
+        console.log(randomCocktail)
+        const { ...data } = randomCocktail;
+
+        res.render('cocktail/random', data)
+
+
+    } catch (err) {
+        next(err)
+    }
+    
+    
+    
+})
+
+router.get("/list", async (req, res) => {
+
+    try{
+        const listOfAllCocktails = await apiService.getAllCocktails();
+        const data = listOfAllCocktails.data.drinks.map(drink => {
+            return {
+                id: drink.idDrink,
+                image: drink.strDrinkThumb,
+                name:drink.strDrink
+            }
+        
+        });
+
+    
+    res.render("cocktail/list", {cocktails: data})
+      console.log(data)
+       
+
+
+    } catch (err){
+        next(err)
+    }
+
+}
+)
+
+
 router.get("/:id", /*isLoggedIn*/ async (req, res, next) => {
     try {
         const cocktailResp = await apiService.getCocktailById(req.params.id)
@@ -42,6 +92,12 @@ router.get("/:id", /*isLoggedIn*/ async (req, res, next) => {
         next(error)
     }
 })
+
+
+
+
+
+
 
 module.exports = router;
 

@@ -1,0 +1,13 @@
+<div>
+    {{#each cocktails}}
+    <h1>{{name}}</h1>
+     <form action="/cocktail/add" method="POST">
+       <input type="hidden" name="characterId" value="{{id}}">
+        <button type="submit" class="btn btn-primary">Add to my Home Page</button>
+     </form>
+    <p>{{id}}</p>
+    <img src="{{image}}" alt="{{name}}" />
+
+     {{/each}}
+    
+</div>
