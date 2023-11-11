@@ -5,14 +5,19 @@ const apiService = new ApiService();
 
 const Cocktail = require('../services/cocktail');
 
+
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
+
+
+const User = require("../models/User.model")
+
 
 //GET cocktail/:id 
 
 
 
-router.get("/random", async (req, res, next) => {
+router.get("/random", isLoggedIn, async (req, res, next) => {
     try {
        
         const randomC = await apiService.getRandomCocktail();
@@ -33,7 +38,7 @@ router.get("/random", async (req, res, next) => {
     
 })
 
-router.get("/list", async (req, res) => {
+router.get("/list", isLoggedIn, async (req, res) => {
 
     try{
         const listOfAllCocktails = await apiService.getAllCocktails();
@@ -59,8 +64,66 @@ router.get("/list", async (req, res) => {
 }
 )
 
+router.get("/myfavorites", isLoggedIn, async (req, res, next) => {
+    try {
+        
+        const currentUser = req.session.currentUser;
 
-router.get("/:id", /*isLoggedIn*/ async (req, res, next) => {
+        let user = await User.findOne({email: currentUser.email})
+
+        const myFavorites = user.my_favorites;
+
+        console.log(myFavorites)
+
+        res.render('cocktail/my-favorites', {favorites: myFavorites})
+
+    } catch (error) {
+        next(error)
+    }
+} )
+
+
+router.post("/addfavoritebyid", isLoggedIn, async (req, res, next) => {
+    try {
+
+        const id = req.body.cocktailId;
+        const currentUser = req.session.currentUser;
+
+        
+
+        let user = await User.findOneAndUpdate({email: currentUser.email}, {$addToSet: {my_favorites: id}}, {new: true})
+
+        res.redirect("/cocktail/myfavorites")
+        console.log(user)
+        
+    } catch (error) {
+        
+    }
+})
+
+
+router.post("/removefavorite/:id",  async (req, res, next) => {
+    try {
+        console.log("test")
+        const cocktailId = req.body.cocktailId;
+        
+        const currentUser = req.session.currentUser;
+        
+        let user = await User.findOne({ username: currentUser.username })
+        console.log(user.my_favorites)
+        user.my_favorites = user.my_favorites.filter(_id => _id !== cocktailId)
+        await user.save()
+        res.redirect("/cocktail/myfavorites")
+
+
+        
+        
+    } catch (error) {
+        next(error)
+    }
+})
+
+router.get("/:id", isLoggedIn, async (req, res, next) => {
     try {
         const cocktailResp = await apiService.getCocktailById(req.params.id)
         // console.log("raw response", cocktailResp) 

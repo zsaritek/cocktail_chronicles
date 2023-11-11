@@ -21,6 +21,9 @@ const userSchema = new Schema(
       required: [true, "Password is required"],
       trim: true
     },
+    my_favorites: {
+      type: [{type: Schema.Types.ObjectId, ref: 'Favorite'}]
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
