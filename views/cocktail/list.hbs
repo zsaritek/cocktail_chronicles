@@ -1,15 +1,18 @@
 <div>
-    {{#each cocktails}}
-    <h1>{{name}}</h1>
-     <form action="/favorite/addfavoritebyid" method="POST">
-       <input type="hidden" name="cocktailId" value="{{id}}">
-        <button type="submit" class="btn btn-primary">Add to my Home Page</button>
-     </form>
-    <p>{{id}}</p>
-    <img src="{{image}}" alt="{{name}}" />
+  {{#each cocktails}}
+  <h1>{{name}}</h1>
+  <form action="/favorite/addfavoritebyid" method="POST">
+    <input type="hidden" name="cocktailId" value="{{id}}">
+    <button type="submit" class="btn btn-primary">Add to my Home Page</button>
+  </form>
+  <p>{{id}}</p>
+  <img src="{{image}}" alt="{{name}}" />
+  <br>
+  <br>
+  <form action="/favorite/removefavoritebyid" method="POST">
+    <input type="hidden" name="cocktailId" value="{{id}}">
+    <button type="submit" class="btn btn-primary">Remove from my favorites</button>
+  </form>
+  {{/each}}
 
-    <a href="/favorite/removefavorite/{{id}}">Remove from my favorites</a>
-    
-     {{/each}}
-    
 </div>

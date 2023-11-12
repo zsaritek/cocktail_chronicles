@@ -2,7 +2,7 @@ class Cocktail {
     constructor(cocktailData) {
         this.id = cocktailData.idDrink;
         this.name = cocktailData.strDrink;
-        this.recipe = cocktailData.strInstruction;
+        this.recipe = cocktailData.strInstructions;
         this.image = cocktailData.strDrinkThumb;
         this.ingredients = [];
         if (cocktailData.strIngredient1) {

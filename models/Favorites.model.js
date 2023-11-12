@@ -5,36 +5,36 @@ const favoritesSchema = new Schema(
   {
 
     id: {
-    
-        type: String,
-        required: [true, "Cocktailid is required"],
-        unique: true,
-        trim: true
+
+      type: String,
+      required: [true, "Cocktailid is required"],
+      unique: true,
+      trim: true
 
     },
     name: {
-        type: String
+      type: String
     },
     recipe: {
-        type: String
+      type: String
     },
 
     ingredients: {
-        type: []
+      type: []
     }
 
     // users: {
     //     type: [{type: Schema.Types.ObjectId, ref: 'User'}]
     // }
-    
+
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
-    
+
   }
 );
 
-const myFavoriteCocktail = model('my favorite cocktail', favoritesSchema)
+const myFavoriteCocktail = model('MyFavoriteCocktail', favoritesSchema)
 
 module.exports = myFavoriteCocktail;
