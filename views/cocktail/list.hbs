@@ -3,7 +3,7 @@
   <h1>{{name}}</h1>
   <form action="/favorite/addfavoritebyid" method="POST">
     <input type="hidden" name="cocktailId" value="{{id}}">
-    <button type="submit" class="btn btn-primary">Add to my Home Page</button>
+    <button type="submit" class="btn btn-primary">Add to My Favorite</button>
   </form>
   <p>{{id}}</p>
   <img src="{{image}}" alt="{{name}}" />
@@ -11,7 +11,7 @@
   <br>
   <form action="/favorite/removefavoritebyid" method="POST">
     <input type="hidden" name="cocktailId" value="{{id}}">
-    <button type="submit" class="btn btn-primary">Remove from my favorites</button>
+    <button type="submit" class="btn btn-primary">Remove from My Favorites</button>
   </form>
   {{/each}}
 

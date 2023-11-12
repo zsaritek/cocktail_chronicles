@@ -1,2 +1,49 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<h1>THE COCKTAIL CHRONICLES 🍸</h1>
+<nav>
+        <ul>
+                {{#if currentUser}}
+                <li><a href="/auth/logout">Log Out</a></li>
+                {{/if}}
+                {{#unless currentUser}}
+                <li><a href="/auth/login">Sign In</a></li>
+                <li><a href="/auth/signup">Sign Up</a></li>
+                {{/unless}}
+        </ul>
+</nav>
+<style>
+        .container {
+                display: flex;
+        }
+
+        .image-container {
+                flex: 1;
+                margin-right: 20px;
+                /* Adjust the margin as needed */
+        }
+
+        .text-container {
+                flex: 2;
+        }
+</style>
+<div class="container">
+        <div class="image-container">
+                <img src="images/mainpage.jpg" style="width: auto;height:500px;" alt="Cocktail Image">
+        </div>
+        <div class="text-container">
+                <p>Cocktail History:Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis impedit
+                        blanditiis
+                        laudantium
+                        tenetur asperiores reprehenderit? Molestiae unde labore magni dolorum qui. Expedita, voluptas
+                        assumenda!
+                        Possimus
+                        iste temporibus repellendus officiis voluptatem blanditiis placeat reprehenderit voluptatibus
+                        labore
+                        facilis,
+                        rem eaque reiciendis qui debitis nesciunt ipsum quis iure expedita nemo, ipsam quam consequatur!
+                </p>
+                <br>
+                <blockquote>Quote:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo neque quasi totam
+                        reiciendis esse repudiandae,
+                        consectetur praesentium dolorum minima sit?"</blockquote>
+        </div>
+</div>
