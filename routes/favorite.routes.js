@@ -14,7 +14,7 @@ const Favorite = require("../models/Favorites.model")
 router.get("/myfavorites", isLoggedIn, async (req, res, next) => {
     try {
         const currentUser = req.session.currentUser;
-        let user = await User.findOne({ email: currentUser.email })
+        let user = await User.findOne({ email: currentUser.email }).populate('my_favorites')
         const myFavorites = user.my_favorites;
         console.log(myFavorites)
 
@@ -28,26 +28,27 @@ router.get("/myfavorites", isLoggedIn, async (req, res, next) => {
 router.post("/addfavoritebyid", isLoggedIn, async (req, res, next) => {
     try {
         const id = req.body.cocktailId;
-        console.log(id)
-        //const currentUser = req.session.currentUser;
-        // Here we add our cocktail to our Favorite model
         let favoriteCocktailResponse = await apiService.getCocktailById(id);
         const cocktail = new Cocktail(favoriteCocktailResponse.data.drinks[0])
-        // const c = await Favorite.create(cocktail)(We can compare with findOne and Update)
-        // Assuming "id" is a unique identifier for our myfavoritecocktail record
-        // we can use findOneAndUpdate with upsert option
         const update = { $set: cocktail };
         const c = await Favorite.findOneAndUpdate({ id: cocktail.id }, update, { upsert: true, new: true, setDefaultsOnInsert: true });
-        console.log(c)
         let currentUser = req.session.currentUser;
-        let user = await User.findOneAndUpdate({ email: currentUser.email }, { $addToSet: { my_favorites: c._id } }, { new: true })
-
-        res.redirect("/favorite/myfavorites")
+        let user = await User.findOne({ email: currentUser.email })
         console.log(user)
+        let user_fav = user.my_favorites
+        if (user_fav.length < 11) {
+            let fav = await User.findOneAndUpdate({ email: currentUser.email },
+                { $addToSet: { my_favorites: c._id } }, { new: true })
+        } else {
+            return res.status(400).json({ message: "You can not add more than 10 cocktails." });
+        }
+        res.redirect("/favorite/myfavorites")
+        console.log(user_fav.length)
     } catch (error) {
         next(error)
     }
 })
+
 
 //POST /favorite/removefavoritebyid 
 router.post("/removefavoritebyid", isLoggedIn, async (req, res, next) => {
