@@ -15,6 +15,10 @@ const favoritesSchema = new Schema(
     name: {
       type: String
     },
+    image: {
+      type: String
+    },
+
     recipe: {
       type: String
     },
