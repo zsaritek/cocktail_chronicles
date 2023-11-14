@@ -53,6 +53,7 @@ router.post("/addfavoritebyid", isLoggedIn, async (req, res, next) => {
 router.post("/removefavoritebyid", isLoggedIn, async (req, res, next) => {
     try {
         const cocktailId = req.body.cocktailId;
+        console.log(cocktailId)
         const currentUser = req.session.currentUser;
         let favorite = await Favorite.findOne({ id: cocktailId })
         const object_id = favorite._id
