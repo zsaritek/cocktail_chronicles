@@ -1,3 +1,10 @@
+<nav>
+    <ul>
+        <li><a href="/favorite/myfavorites">My Favorites</a></li>
+        <li><a href="/cocktail/list">Cocktail List</a></li>
+        <li><a href="/cocktail/random ">Random Cocktail</a></li>
+    </ul>
+</nav>
 <div>
     <h1>{{name}}</h1>
     <p>{{recipe}}</p>
@@ -9,4 +16,8 @@
 
         {{/each}}
     </ul>
+    <form action="/favorite/addfavoritebyid" method="POST">
+    <input type="hidden" name="cocktailId" value="{{id}}">
+    <button type="submit" class="btn btn-primary">Add to My Favorite</button>
+    </form>
 </div>

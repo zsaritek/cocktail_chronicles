@@ -42,7 +42,7 @@ router.post("/addfavoritebyid", isLoggedIn, async (req, res, next) => {
         } else {
             return res.status(400).json({ message: "You can not add more than 10 cocktails." });
         }
-        res.redirect("/favorite/myfavorites")
+        res.status(204).end();
         console.log(user_fav.length)
     } catch (error) {
         next(error)

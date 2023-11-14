@@ -1,18 +1,21 @@
+<h1>THE COCKTAIL CHRONICLES 🍸</h1>
+<nav>
+    <ul>
+        <li><a href="/favorite/myfavorites">My Favorites</a></li>
+        <li><a href="/cocktail/list">Cocktail List</a></li>
+        <li><a href="/cocktail/random ">Random Cocktail</a></li>
+    </ul>
+</nav>
+
+
 <div>
   {{#each cocktails}}
   <h1>{{name}}</h1>
-  <form action="/favorite/addfavoritebyid" method="POST">
-    <input type="hidden" name="cocktailId" value="{{id}}">
-    <button type="submit" class="btn btn-primary">Add to My Favorite</button>
-  </form>
-  <p>{{id}}</p>
+  
   <img src="{{image}}" alt="{{name}}" />
   <br>
   <br>
-  <form action="/favorite/removefavoritebyid" method="POST">
-    <input type="hidden" name="cocktailId" value="{{id}}">
-    <button type="submit" class="btn btn-primary">Remove from My Favorites</button>
-  </form>
+  <a href="/cocktail/{{id}}">See details</a>
   {{/each}}
 
 </div>
