@@ -743,6 +743,11 @@ a {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-cocktail_chronicles-grey {
+  --tw-bg-opacity: 1;
+  background-color: rgb(221 221 221 / var(--tw-bg-opacity));
+}
+
 .bg-cocktail_chronicles-purple {
   --tw-bg-opacity: 1;
   background-color: rgb(129 73 166 / var(--tw-bg-opacity));
@@ -821,10 +826,6 @@ a {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-
-.pb-5 {
-  padding-bottom: 1.25rem;
 }
 
 .pl-10 {

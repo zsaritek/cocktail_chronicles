@@ -13,39 +13,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="./stylesheets/style.css" rel="stylesheet">
+  <link href="/stylesheets/style.css" rel="stylesheet">
 
   <title>{{appTitle}}</title>
 </head>
 
 <body class="font-open">
   {{!-- navbar --}}
-  {{!-- {{#if currentUser}}
-
-  <nav>
-    <div class="flex items-center space-x-4 lg:space-x-8">
-      <li><a href="/auth/logout">Log Out</a></li>
-    </div>
-    <div class="flex items-center lg:text-lg space-x-4 lg:space-x-8">
-      <nav>
-        <ul>
-          <li><a href="/favorite/myfavorites"
-              class="hover:bg-cocktail_chronicles-purple melon transition duration-500">My
-              Favorites</a></li>
-          <li><a href="/cocktail/list"
-              class="hover:bg-cocktail_chronicles-purple melon transition duration-500">Cocktail
-              List</a></li>
-          <li><a href="/cocktail/random "
-              class="hover:bg-cocktail_chronicles-purple melon transition duration-500">Random
-              Cocktail</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </nav>
-
-  {{/if}} --}}
-
   <!-- Header Section -->
   <header class="bg-black py-6 lg:py-12 text-cocktail_chronicles-grey uppercase">
     <!-- header container -->
@@ -90,15 +64,19 @@
   <!-- mobile menu including small screen -->
   <div class="block md:hidden pr-4">
     <div class="space-y-1 cursor-pointer">
-      <div class="bg-tailwind_test_project-grey w-8 h-1 rounded-full"></div>
-      <div class="bg-tailwind_test_project-grey w-8 h-1 rounded-full"></div>
-      <div class="bg-tailwind_test_project-grey w-8 h-1 rounded-full"></div>
+      <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
+      <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
+      <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
     </div>
   </div>
+  <section>
+    <footer class="bg-black text-cocktail_chronicles-grey font-gemunu pl-10 lg:pl-0">
+      <p>&copy; 2023 Test Cocktail Chronicles. All rights reserved.</p>
+      <br>
+    </footer>
+  </section>
 </body>
-<footer class="h-full bg-black text-cocktail_chronicles-grey font-gemunu pl-10 lg:pl-0">
-  <p>&copy; 2023 Test Cocktail Chronicles. All rights reserved.</p>
-  <br>
-</footer>
+
+
 
 </html>

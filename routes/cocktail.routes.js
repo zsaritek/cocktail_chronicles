@@ -17,6 +17,7 @@ router.get("/random", isLoggedIn, async (req, res, next) => {
         const randomCocktail = new Cocktail(randomC.data.drinks[0])
         console.log(randomCocktail)
         const { ...data } = randomCocktail;
+        data.currentUser = req.session.currentUser // in order to show navbar in random page
 
         res.render('cocktail/random', data)
     } catch (err) {
