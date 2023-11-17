@@ -8,7 +8,7 @@ class Cocktail {
         for (let i = 1; i <= 15; i++) {
             const ingredient_element = cocktailData[`strIngredient${i}`];
             const measure_element = cocktailData[`strMeasure${i}`]
-            if (cocktailData[ingredient_element]) {
+            if (ingredient_element) {
                 this.ingredients.push({
                     ingredient: ingredient_element,
                     measurement: measure_element
