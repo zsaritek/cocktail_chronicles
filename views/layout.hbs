@@ -14,17 +14,91 @@
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="./stylesheets/style.css" rel="stylesheet">
+
   <title>{{appTitle}}</title>
 </head>
 
-<body>
+<body class="font-open">
+  {{!-- navbar --}}
+  {{!-- {{#if currentUser}}
 
+  <nav>
+    <div class="flex items-center space-x-4 lg:space-x-8">
+      <li><a href="/auth/logout">Log Out</a></li>
+    </div>
+    <div class="flex items-center lg:text-lg space-x-4 lg:space-x-8">
+      <nav>
+        <ul>
+          <li><a href="/favorite/myfavorites"
+              class="hover:bg-cocktail_chronicles-purple melon transition duration-500">My
+              Favorites</a></li>
+          <li><a href="/cocktail/list"
+              class="hover:bg-cocktail_chronicles-purple melon transition duration-500">Cocktail
+              List</a></li>
+          <li><a href="/cocktail/random "
+              class="hover:bg-cocktail_chronicles-purple melon transition duration-500">Random
+              Cocktail</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+
+  {{/if}} --}}
+
+  <!-- Header Section -->
+  <header class="bg-black py-6 lg:py-12 text-cocktail_chronicles-grey uppercase">
+    <!-- header container -->
+    <div class="container flex items-center justify-between space-x-8 lg:space-x-16">
+      <!-- logo -->
+      <a href="#"
+        class="pl-4 md:pl-0 lg:text-6xl font-bold text-transparent bg-gradient-to-r bg-clip-text from-cocktail_chronicles-purple to-cocktail_chronicles-green">Ↄ|Ↄ</a>
+      <!-- nav bar -->
+      {{#if currentUser}}
+      <nav class="hidden md:flex justify-between flex-1">
+        <div class="flex items-center lg:text-lg space-x-4 lg:space-x-8">
+          <a href="/favorite/myfavorites" class="hover:bg-cocktail_chronicles-purple melon transition duration-500">My
+            Favorites</a>
+          <a href="/cocktail/list" class="hover:bg-cocktail_chronicles-purple melon transition duration-500">Cocktail
+            List</a>
+          <a href="/cocktail/random " class="hover:bg-cocktail_chronicles-purple melon transition duration-500">Random
+            Cocktail</a>
+        </div>
+        <div class="flex items-center space-x-4 lg:space-x-8">
+          <a href="/auth/logout">Log Out</a>
+        </div>
+      </nav>
+      {{/if}}
+      <!-- sign up  -->
+      {{#unless currentUser}}
+      <section>
+        <ul>
+          <div class="flex items-center space-x-4 lg:space-x-8 lg:text-lg">
+            <li><a href="/auth/login">Sign In</a></li>
+            <li><a href="/auth/signup"
+                class="bg-cocktail_chronicles-purple px-3 py-1 hover:bg-cocktail_chronicles-green hover:text-cocktail_chronicles-grey cursor-pointer transition duration-500 whitespace-nowrap">Sign
+                Up</a></li>
+          </div>
+        </ul>
+      </section>
+      {{/unless}}
+    </div>
+  </header>
   {{{body}}}
 
   <script src="/js/script.js"></script>
+  <!-- mobile menu including small screen -->
+  <div class="block md:hidden pr-4">
+    <div class="space-y-1 cursor-pointer">
+      <div class="bg-tailwind_test_project-grey w-8 h-1 rounded-full"></div>
+      <div class="bg-tailwind_test_project-grey w-8 h-1 rounded-full"></div>
+      <div class="bg-tailwind_test_project-grey w-8 h-1 rounded-full"></div>
+    </div>
+  </div>
 </body>
-<footer>
-  <p>&copy; 2023 Cocktail Chronicles. All rights reserved.</p>
+<footer class="h-full bg-black text-cocktail_chronicles-grey font-gemunu pl-10 lg:pl-0">
+  <p>&copy; 2023 Test Cocktail Chronicles. All rights reserved.</p>
+  <br>
 </footer>
 
 </html>
