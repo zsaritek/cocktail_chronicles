@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>{{appTitle}}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@700&family=Open+Sans:wght@300;400&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            gemunu: ['Gemunu Libre', 'sans-serif'],
+            open: ['Open Sans', 'sans-serif']
+          },
+          colors: {
+            pink: '#D504D9',
+            purple: '#8149A6',
+            green: '#027373',
+            sgreen: '#04BFAD',
+            grey: '#DDDDDD',
+          },
+          spacing: {
+            128: '50rem', // main section
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+
+    @layer base {
+   
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @apply font-gemunu uppercase;
+      }
+
+      h2 {
+        @apply text-2xl;
+      }
+
+      a {
+        @apply font-gemunu;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  {{{body}}}
+
+  <script src="/js/script.js"></script>
+
+</body>
+<footer>
+  <p>&copy; 2023 Cocktail Chronicles. All rights reserved.</p>
+</footer>
+
+</html>

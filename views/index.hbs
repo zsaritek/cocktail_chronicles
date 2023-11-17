@@ -1,54 +1,120 @@
-<h1>THE COCKTAIL CHRONICLES 🍸</h1>
 <nav>
+        {{#if currentUser}}
+        <li><a href="/auth/logout">Log Out</a></li>
         <ul>
-                {{#if currentUser}}
-                <li><a href="/auth/logout">Log Out</a></li>
-                <ul>
-                        <li><a href="/favorite/myfavorites">My Favorites</a></li>
-                        <li><a href="/cocktail/list">Cocktail List</a></li>
-                        <li><a href="/cocktail/random ">Random Cocktail</a></li>
-                </ul>
-                {{/if}}
-                {{#unless currentUser}}
-                <li><a href="/auth/login">Sign In</a></li>
-                <li><a href="/auth/signup">Sign Up</a></li>
-                {{/unless}}
+                <li><a href="/favorite/myfavorites">My Favorites</a></li>
+                <li><a href="/cocktail/list">Cocktail List</a></li>
+                <li><a href="/cocktail/random ">Random Cocktail</a></li>
         </ul>
-</nav>
-<style>
-        .container {
-                display: flex;
-        }
+        {{/if}}
+        <!-- Header Section -->
+        <header class="bg-black py-6 lg:py-12 text-cocktail_chronicles-grey uppercase">
+                <!-- header container -->
+                <div class="container flex items-center justify-between space-x-8 lg:space-x-16">
+                        <!-- logo -->
+                        <a href="#"
+                                class="pl-4 md:pl-0 lg:text-6xl font-bold text-transparent bg-gradient-to-r bg-clip-text from-cocktail_chronicles-purple to-cocktail_chronicles-green">C|C</a>
+                        <!-- mobile menu including small screen -->
+                        <div class="block md:hidden pr-4">
+                                <div class="space-y-1 cursor-pointer">
+                                        <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
+                                        <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
+                                        <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
+                                </div>
+                        </div>
+                        <!-- sign up  -->
+                        <section>
 
-        .image-container {
-                flex: 1;
-                margin-right: 20px;
-                /* Adjust the margin as needed */
-        }
+                                <ul>{{#unless currentUser}}
+                                        <div class="flex items-center space-x-4 lg:space-x-8 lg:text-lg">
+                                                <li><a href="/auth/login">Sign
+                                                                In</a></li>
+                                                <li><a href="/auth/signup"
+                                                                class="bg-cocktail_chronicles-purple px-3 py-1 hover:bg-teal-500 hover:text-cocktail_chronicles-grey cursor-pointer transition duration-500 whitespace-nowrap ">Sign
+                                                                Up</a></li>
+                                                {{/unless}}
+                                </ul>
+                </div>
+                </section>
+                {{!-- main section --}}
+                <section class="h-96 lg:h-128 group relative">
+                        {{!-- main image content --}}
+                        <img src="images/cocktail.shaker.jpg" alt="main Image" class="h-full w-full object-cover">
+                        {{!-- cocktail shaker content --}}
+                        <div class="absolute bottom-0 w-full bg-gradient-to-b from transparent to-black">
+                                {{!-- cocktail shaker container --}}
+                                <div class="container pl-10 lg:pl-0">
+                                        <h3
+                                                class="text-cocktail_chronicles-green tracking-wider group-hover:mb-1 duration-500">
+                                                Action,Taste,Bartender
+                                                <h1
+                                                        class="text-4x1 lg:text-6xl text-cocktail_chronicles-grey group-hover:mb-1 duration-500">
+                                                        "THE COCKTAIL CHRONICLES"</h1>
+                                                <p
+                                                        class="text-cocktail_chronicles-grey group-hover:mb-2 duration-500 w-2/3 lg:w-2/3 mb-2">
+                                                        Sipping a meticulously crafted cocktail, one indulges in a
+                                                        symphony of flavors, a dance of spirits that transcends
+                                                        ordinary libations.
+                                                </p>
+                                                <!--Detail Container action,taste,bartender-->
+                                                <div
+                                                        class="flex space-x-7 opacity-0 group-hover:opacity-100 group-hover:mb-10 lg:group-hover:mb-20 duration-1000">
+                                                </div>
+                                </div>
+                        </div>
+                </section>
+                {{!-- middle section --}}
+                <section class="py-24 bg-black">
+                        {{!-- middle section history --}}
+                        <div class="container flex flex-col lg:flex-row  lg:space-x-16 space-y-8 lg:space-y-0">
+                                <!-- left content -->
+                                <div class="basis-2/3 bg-black mb-8 pl-10 lg:pl-0">
+                                        <h2 class="text-cocktail_chronicles-grey mb-8  ">
+                                                COCKTAIL HISTORY
+                                        </h2>
+                                        <h2 class="text-cocktail_chronicles-grey mb-8 lowercase font-gemunu">
+                                                The history of cocktails is a fascinating journey spanning centuries,
+                                                originating in the 18th century. Cocktails evolved
+                                                as a delightful fusion of spirits, sugar, water, and bitters. The term
+                                                "cocktail" made its debut in 1806, defined as a
+                                                concoction of spirits with sugar and bitters. As the 19th century
+                                                unfolded, the art of mixology flourished, giving rise
+                                                to iconic drinks like the Martini and Old Fashioned.
+                                                The 1920s Prohibition in the United States significantly influenced
+                                                cocktail culture. Speakeasies and hidden bars became
+                                                sanctuaries for covert imbibing, leading to the creation of innovative
+                                                drinks designed to mask the taste of subpar
+                                                alcohol. Classic cocktails such as the Sidecar and the Sazerac emerged
+                                                during this era.
+                                                The mid-20th century witnessed a surge in cocktail sophistication with
+                                                the advent of tiki drinks and the impact of
+                                                esteemed bartenders. The late 20th century and early 21st century
+                                                experienced a revival of classic cocktails and the
+                                                ascent of craft cocktail movements, emphasizing fresh, high-quality
+                                                ingredients and inventive techniques.
+                                                Today, cocktails continue to transform, with a focus on creativity,
+                                                craftsmanship, and the rediscovery of neglected
+                                                recipes, making the realm of mixology a vibrant and continually evolving
+                                                landscape.
+                                        </h2>
+                                        <blockquote
+                                                class="text-cocktail_chronicles-grey divide-mb-8 lowercase font-gemunu ">
+                                                Quote:"Cocktails are crafted symphonies of spirits and flavors, a liquid
+                                                poetry that transcends time and borders. In each
+                                                shaken or stirred creation, there lies a story, a celebration, and the
+                                                artistry of the spirited soul. Cheers to the
+                                                libations that turn moments into memories." - Mixology Maestro
+                                        </blockquote>
+                                </div>
+                                <!-- right content -->
+                                <div class="basis-1/3 brightness-95">
 
-        .text-container {
-                flex: 2;
-        }
-</style>
-<div class="container">
-        <div class="image-container">
-                <img src="images/mainpage.jpg" style="width: auto;height:500px;" alt="Cocktail Image">
-        </div>
-        <div class="text-container">
-                <p>Cocktail History:Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis impedit
-                        blanditiis
-                        laudantium
-                        tenetur asperiores reprehenderit? Molestiae unde labore magni dolorum qui. Expedita, voluptas
-                        assumenda!
-                        Possimus
-                        iste temporibus repellendus officiis voluptatem blanditiis placeat reprehenderit voluptatibus
-                        labore
-                        facilis,
-                        rem eaque reiciendis qui debitis nesciunt ipsum quis iure expedita nemo, ipsam quam consequatur!
-                </p>
-                <br>
-                <blockquote>Quote:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo neque quasi totam
-                        reiciendis esse repudiandae,
-                        consectetur praesentium dolorum minima sit?"</blockquote>
-        </div>
-</div>
+                                        <img src="./images/middle.jpg" alt="In Image"
+                                                class="h-full justify-center space-y-4">
+                                </div>
+                                <!-- Titles/Cocktail History -->
+                                <div class="flex space-x-2 divide-x  divide-opacity-50 mb-8 pl-10 lg:pl-0">
+                                </div>
+                        </div>
+                </section>
+                </section>

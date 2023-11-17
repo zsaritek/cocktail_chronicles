@@ -1,0 +1,116 @@
+<!-- Header Section -->
+<header class="bg-black py-6 lg:py-12 text-grey uppercase">
+        <!-- header container -->
+        <div class="container flex items-center justify-between space-x-8 lg:space-x-16">
+                <!-- logo -->
+                <a href="#"
+                        class="pl-4 md:pl-0 lg:text-6xl font-bold text-transparent bg-gradient-to-r bg-clip-text from-green to-tailwind_test_project-purple">C|C</a>
+                <h1>THE COCKTAIL CHRONICLES</h1>
+                <nav>
+                        <ul>
+                                {{#if currentUser}}
+                                <li><a href="/auth/logout">Log Out</a></li>
+                                <ul>
+                                        <li><a href="/favorite/myfavorites">My Favorites</a></li>
+                                        <li><a href="/cocktail/list">Cocktail List</a></li>
+                                        <li><a href="/cocktail/random ">Random Cocktail</a></li>
+                                </ul>
+                                {{/if}}
+
+                                <section>
+                                        {{#unless currentUser}}
+                                        <div class="flex items-center lg:text-lg space-x-4 lg:space-x-8">
+                                                <li><a href="#"
+                                                                class="hover:text-tailwind_test_project-melon transition duration-500">SIGN
+                                                                IN</a></li>
+                                                <a href="#"
+                                                        class="hover:text-tailwind_test_project-melon transition duration-500">SIGN
+                                                        OUT</a>
+                                                {{!-- <li><a href="/auth/login">Sign In</a></li>
+                                                <li><a href="/auth/signup">Sign Up</a></li> --}}
+                                                {{/unless}}
+                                </section>
+</header>
+</ul>
+</nav>
+<!-- Main section -->
+
+<section class="h-96 lg:h-128 group relative">
+
+        <!-- main image -->
+        <img src="./images/cocktail.shaker.jpg" alt="Main Image" class="h-full w-full object-cover ">
+
+        <!-- main content -->
+        <div class="absolute bottom-0 w-full bg-gradient-to-b from transparent to-black">
+                <!-- main content container -->
+                <div class="container pl-10 lg:pl-0">
+                        <h3 class="text-purple tracking-wider group-hover:mb-1 duration-500">
+                                Action,Taste,Bartender
+                                <h1 class="text-4x1 lg:text-6xl text--grey group-hover:mb-1 duration-500">
+                                        "THE COCKTAIL CHRONICLES"</h1>
+                                <p class="text-grey group-hover:mb-2 duration-500 w-2/3 lg:w-2/3 mb-2">
+                                        Lorem
+                                        ipsum
+                                        dolor sit
+                                        amet, consectetur
+                                        adipisicing elit. Quibusdam dolores possimus iste nulla
+                                        beatae hic dolorem quam pariatur, vero amet?
+                                </p>
+                                <!--Detail Container action,taste,bartender-->
+                                <div
+                                        class="flex space-x-7 opacity-0 group-hover:opacity-100 group-hover:mb-10 lg:group-hover:mb-20 duration-1000">
+                                </div>
+                </div>
+        </div>
+</section>
+<!-- main section  -->
+<section class="py-24 bg-black font-gemunu uppercase">
+        <!-- main section content  -->
+        <div class="container flex flex-col lg:flex-row  lg:space-x-16 space-y-8 lg:space-y-0">
+                <!-- left content -->
+                <div class="basis-2/3 bg-black mb-8 pl-10 lg:pl-0">
+                        <h2 class="text-grey mb-8 ">
+                                HISTORY
+                        </h2>
+                        <h2 class="text-grey mb-8 lowercase font-gemunu">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem qui veritatis beatae
+                                quam. Quisquam ut adipisci suscipit. Exercitationem maxime nostrum tenetur blanditiis
+                                rerum atque obcaecati vitae unde, voluptates culpa doloremque possimus assumenda
+                                excepturi veniam, impedit suscipit, enim in facilis? Nemo vitae culpa eum doloremque
+                                asperiores soluta doloribus delectus et vero porro voluptatibus dicta earum quod
+                                dolorem, aliquid possimus fugiat omnis voluptas adipisci laudantium veniam! Voluptatem
+                                distinctio, beatae consequuntur dolorem pariatur voluptate quae ipsam non blanditiis
+                                quam quaerat, temporibus nesciunt quia sit? Reiciendis ipsum quaerat, at sit minima esse
+                                animi, voluptatum fuga necessitatibus blanditiis pariatur accusamus aspernatur dolorum
+                                facilis odit repellat modi? Explicabo, nemo, eligendi voluptatum, natus placeat id
+                                voluptatibus soluta eaque et nesciunt odio quae modi? Odio harum saepe culpa labore
+                                architecto possimus quae praesentium, deserunt repellat molestiae, ab et, officiis
+                                delectus quod officia placeat suscipit autem quia cumque magni enim. Dolorem maiores a
+                                voluptatibus magnam aliquid nam, modi placeat velit amet ducimus ratione, adipisci
+                                accusamus ipsam sed! Debitis dolore iure quis molestias ex dicta eligendi labore quod
+                                corporis reprehenderit! Iusto, obcaecati minima, illo impedit ad voluptatem non iure
+                                fugit dolor mollitia quaerat? Alias incidunt, corrupti fugit ut, a explicabo nam atque
+                                mollitia libero, in totam molestiae deleniti exercitationem quo..</h2>
+                        <h2 class="text-grey divide-mb-8 lowercase font-gemunu">Lorem ipsum dolor
+                                sit amet
+                                consectetur
+                                adipisicing elit. Officiis perspiciatis dicta nisi dolorem
+                                voluptatibus voluptate, facere ex! Obcaecati, accusantium possimus.</h2>
+                        <br>
+                        <blockquote class="text-grey divide-mb-8 font-gemunu ">Quote:"Lorem ipsum,
+                                dolor
+                                sit
+                                amet consectetur adipisicing elit. Illo neque quasi totam
+                                reiciendis esse repudiandae,
+                                consectetur praesentium dolorum minima sit?"</blockquote>
+                </div>
+                <!-- right content -->
+                <div class="basis-1/3">
+                        Right Side
+                        <img src="./images/middle.jpg" alt="In Image" class="h-full justify-center space-y-4">
+                </div>
+                {{!-- <!-- Titles/Cocktail History -->
+                <div class="flex space-x-2 divide-x  divide-opacity-50 mb-8 pl-10 lg:pl-0">
+                </div> --}}
+        </div>
+</section>
