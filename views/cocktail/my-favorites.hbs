@@ -1,13 +1,32 @@
-<h1>THE COCKTAIL CHRONICLES 🍸</h1>
-<nav>
-    <ul>
-        <li><a href="/favorite/myfavorites">My Favorites</a></li>
-        <li><a href="/cocktail/list">Cocktail List</a></li>
-        <li><a href="/cocktail/random ">Random Cocktail</a></li>
-    </ul>
-</nav>
-<br>
-{{#each favorites}}
+{{!-- my-favorite menu --}}
+
+{{!-- <section class="relative">
+    <img src="/images/list.background.jpg" alt="Cocktail Background"
+        class="absolute inset-0  object-cover h-full w-full z-0 opacity-95">
+    <div class="container mx-auto p-10 relative z-10 flex flex-col items justify-center items-center">
+        <div class="text-center mb-8 col-span-3 md:col-span-2 lg:col-span-1 rounded-md max-w-3xl">
+            <h1 class="text-3xl text-center font-bold uppercase text-cocktail_chronicles-grey">
+                My Favorite Cocktail List
+            </h1>
+        </div>
+        {{#each favorites}}
+        <h1>{{name}}</h1>
+        <br>
+        <img src="{{image}}" alt="{{name}}" />
+        <br>
+        <li>{{ingredient}} - {{measurement}}</li>
+        <form method="POST" action="/favorite/removefavoritebyid">
+            <input type="hidden" name="cocktailId" value="{{id}}">
+            <button type="submit" class="">Remove from Favorites</button>
+        </form>
+        {{/each}}
+    </div>
+    </div>
+
+</section> --}}
+
+
+{{!-- {{#each favorites}}
 <h1>{{name}}</h1>
 <br>
 <img src="{{image}}" alt="{{name}}" />
@@ -17,4 +36,25 @@
     <input type="hidden" name="cocktailId" value="{{id}}">
     <button type="submit" class="">Remove from Favorites</button>
 </form>
+{{/each}} --}}
+
+
+
+{{!-- {{#each favorites}}
+<div class="mx-auto mb-5">
+    <img src="{{image}}" alt="{{name}} " class="w-18 h-18 rounded-full object-cover" />
+</div>
+<div class="grid grid-cols-1">
+    <h2 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative">Cocktail
+        Name: {{name}}</h2>
+    <li class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center 
+                    font-gemunu relative">{{ingredient}} - {{measurement}}</li>
+    <br>
+    <form method="POST" action="/favorite/removefavoritebyid">
+        <input type="hidden" name="cocktailId" value="{{id}}">
+        <button type="submit" class="bg-cocktail_chronicles-purple hover:bg-cocktail_chronicles-green
+                    text-white font-bold py-2 px-4 rounded-full font-gemunu">Remove from Favorites</button>
+    </form>
+</div>
 {{/each}}
+</section> --}}
