@@ -1,41 +1,31 @@
-{{!-- random menu test --}}
+{{!-- random menu --}}
+
 <section class="relative">
     <img src="/images/list.background.jpg" alt="Cocktail Background"
-        class="absolute inset-0 w-full object-cover z-0 opacity-90">
-    {{!-- <div class="flex items-center lg:text-lg space-x-4 lg:space-x-8">
+        class="absolute inset-0 w-full h-full object-cover z-0 opacity-95">
+    <div class="container mx-auto p-10 relative z-10 flex flex-col items justify-center items-center">
 
-    </div> --}}
-    <div class="basis 2/3 p-6 rounded-lg ">
-        <img src="{{image}}" alt="{{name}}" class="w-19 h-19 rounded-full object-cover relative" />
-    </div>
-    <div class="basis-1/3 text-cocktail-chronicles-grey mb-8 justify-center space-y-4">
-        <h1>{{name}}</h1>
-        <h2>{{recipe}}</h2>
-        <ul>
-            {{#each ingredients}}
-            <li>{{ingredient}} - {{measurement}}</li>
-            {{/each}}
-        </ul>
+        <div class="text-center mb-8 col-span-3 md:col-span-2 lg:col-span-1 rounded-md max-w-3xl">
+            <h1 class="text-3xl text-center font-bold uppercase text-white">
+                Special For Today
+            </h1>
+        </div>
+        <div class="mx-auto mb-5">
+            <img src="{{image}}" alt="{{name}}" class="w-18 h-18 rounded-full object-cover" />
+        </div>
+        <div class="grid grid-cols-1">
+            <h2 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative ">
+                Coctail
+                Name:{{name}}</h2>
+            <h2 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative ">
+                Recipe:{{recipe}}</h2>
+            <ul>
+                {{#each ingredients}}
+                <li class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relatative
+                    font-gemunu">
+                    {{ingredient}}-{{measurement}}</li>
+                {{/each}}
+            </ul>
+        </div>
     </div>
 </section>
-{{!-- <section class="relative">
-    <div class="flex items-center lg:text-lg space-x-4 lg:space-x-8">
-        <div>
-            <img src="/images/list.background.jpg" alt="Cocktail Background"
-                class="absolute inset-0 w-full h-full object-cover z-0 opacity-90">
-            <div class="container mx-auto p-10 relative z-10">
-            </div>
-            <div class="bg-black p-6 rounded-lg shadow text-cocktail_chronicles-grey">
-                <h2 class="text-xl font-bold mb-2">
-                    <h1>{{name}}</h1>
-                    <p>{{recipe}}</p>
-                    <img src="{{image}}" alt="{{name}}" class="w-19 h-19 rounded-full object-cover " />
-                    <ul>
-                        {{#each ingredients}}
-                        <li>{{ingredient}} - {{measurement}}</li>
-
-
-                        {{/each}}
-                    </ul>
-            </div>
-</section> --}}

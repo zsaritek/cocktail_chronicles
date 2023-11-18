@@ -17,7 +17,6 @@ router.get("/myfavorites", isLoggedIn, async (req, res, next) => {
         let user = await User.findOne({ email: currentUser.email }).populate('my_favorites')
         const myFavorites = user.my_favorites;
         console.log(myFavorites)
-
         res.render('cocktail/my-favorites', { favorites: myFavorites })
     } catch (error) {
         next(error)
