@@ -1,24 +1,43 @@
-<div id="login-form">
-  <h2>Log In</h2>
-  <form action="/auth/login" method="POST">
+<section class="relative h-screen flex items-center">
+   <img src="/images/list.background.jpg" alt="Cocktail Background"
+        class="absolute inset-0 w-full h-full object-cover z-0 opacity-95">
+<div class=" container mx-auto p-10 relative z-10 flex flex-col items-center">
+  
+  <div class=" p-6">
+    <h2 class="text-white text-2xl mb-10">Log In</h2>
+    <form action="/auth/login" method="POST" class="flex flex-col items-center">
+      <label class="text-cocktail_chronicles-grey "> 
+        <input type="text" name="username" placeholder="Your username" class="bg-cocktail_chronicles-purple  w-full md:w-64 text-cocktail_chronicles-grey rounded-lg p-2 mb-10 focus:bg-cocktail_chronicles-purple hover:bg-cocktail_chronicles-pink transition-colors duration-300 ease-in-out outline-none" />
+      </label>
 
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
+      <label class="text-cocktail_chronicles-grey">
+        <input type="email" name="email" placeholder="Your email" class="bg-cocktail_chronicles-purple  w-full md:w-64 text-cocktail_chronicles-grey rounded-lg p-2 mb-10 focus:bg-cocktail_chronicles-purple hover:bg-cocktail_chronicles-pink transition-colors duration-300 ease-in-out outline-none" />
+      </label>
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
+      <label class="text-cocktail_chronicles-grey">
+        <input type="password" name="password" placeholder="Your password" class="bg-cocktail_chronicles-purple w-full md:w-64 text-cocktail_chronicles-grey rounded-lg p-2 mb-10 focus:bg-cocktail_chronicles-purple  hover:bg-cocktail_chronicles-pink transition-colors duration-300 ease-in-out outline-none" />
+      </label>
 
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
+      <button type="submit" class="bg-cocktail_chronicles-purple text-cocktail_chronicles-grey px-4 py-2 rounded-md mt-4 focus:bg-cocktail_chronicles-purple ">Log In</button>
 
-    <button type="submit">Log In</button>
-
-
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
+      {{#if errorMessage}}
+        <p class="error text-red-500">{{errorMessage}}</p>
+      {{/if}}
+    </form> 
+  </div>
 </div>
+</section>
+
+
+<style>
+/* For Chrome browser */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #8149A6 inset !important;
+    -webkit-text-fill-color: #DDDDDD !important; /* Text color */
+    caret-color: #DDDDDD !important;
+    
+    border-radius: 0.5rem !important;
+}
+
+
+</style>
