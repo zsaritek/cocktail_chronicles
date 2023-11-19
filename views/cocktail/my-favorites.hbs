@@ -1,27 +1,60 @@
+{{!-- my-favorite menu --}}
 
-<section class="relative" style="height: 1550px; background: url('/images/list.background.jpg') repeat; background-size: cover;">
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-8 ">
+{{!-- <section class="relative">
+    <img src="/images/list.background.jpg" alt="Cocktail Background"
+        class="absolute inset-0  object-cover h-full w-full z-0 opacity-95">
+    <div class="container mx-auto p-10 relative z-10 flex flex-col items justify-center items-center">
+        <div class="text-center mb-8 col-span-3 md:col-span-2 lg:col-span-1 rounded-md max-w-3xl">
+            <h1 class="text-3xl text-center font-bold uppercase text-cocktail_chronicles-grey">
+                My Favorite Cocktail List
+            </h1>
+        </div>
         {{#each favorites}}
-           
-            <div class="bg-black z-10 rounded-lg shadow-md p-3 max-w-xs mx-auto my-3">
-                <h1 class="text-cocktail_chronicles-grey text-base font-bold mb-1">{{name}}</h1>
-                <img src="{{image}}" alt="{{name}}" class="w-2/3 mb-1 rounded-lg">
-
-                <ul class="mb-1">
-                    <li class="text-cocktail_chronicles-grey text-xs">{{ingredient}} - {{measurement}}</li>
-                </ul>
-                <h2>{{name}}</h2>
-                <form method="POST" action="/favorite/removefavoritebyid">
-                    <input type="hidden" name="cocktailId" value="{{id}}">
-                    <button type="submit" class="bg-cocktail_chronicles-purple text-white py-1 px-2 rounded-md hover:bg-red-600 text-xs">
-                        Remove
-                    </button>
-                </form>
-            </div>
-            
+        <h1>{{name}}</h1>
+        <br>
+        <img src="{{image}}" alt="{{name}}" />
+        <br>
+        <li>{{ingredient}} - {{measurement}}</li>
+        <form method="POST" action="/favorite/removefavoritebyid">
+            <input type="hidden" name="cocktailId" value="{{id}}">
+            <button type="submit" class="">Remove from Favorites</button>
+        </form>
         {{/each}}
     </div>
-    
-</section>
+    </div>
 
+</section> --}}
+
+
+{{!-- {{#each favorites}}
+<h1>{{name}}</h1>
+<br>
+<img src="{{image}}" alt="{{name}}" />
+<br>
+<li>{{ingredient}} - {{measurement}}</li>
+<form method="POST" action="/favorite/removefavoritebyid">
+    <input type="hidden" name="cocktailId" value="{{id}}">
+    <button type="submit" class="">Remove from Favorites</button>
+</form>
+{{/each}} --}}
+
+
+
+{{!-- {{#each favorites}}
+<div class="mx-auto mb-5">
+    <img src="{{image}}" alt="{{name}} " class="w-18 h-18 rounded-full object-cover" />
+</div>
+<div class="grid grid-cols-1">
+    <h2 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative">Cocktail
+        Name: {{name}}</h2>
+    <li class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center 
+                    font-gemunu relative">{{ingredient}} - {{measurement}}</li>
+    <br>
+    <form method="POST" action="/favorite/removefavoritebyid">
+        <input type="hidden" name="cocktailId" value="{{id}}">
+        <button type="submit" class="bg-cocktail_chronicles-purple hover:bg-cocktail_chronicles-green
+                    text-white font-bold py-2 px-4 rounded-full font-gemunu">Remove from Favorites</button>
+    </form>
+</div>
+{{/each}}
+</section> --}}

@@ -6,7 +6,7 @@
     <div class="container mx-auto p-10 relative z-10 flex flex-col items justify-center items-center">
 
         <div class="text-center mb-8 col-span-3 md:col-span-2 lg:col-span-1 rounded-md max-w-3xl">
-            <h1 class="text-3xl text-center font-bold uppercase text-white">
+            <h1 class="text-3xl text-center font-bold uppercase text-cocktail_chronicles-grey">
                 Special For Today
             </h1>
         </div>
@@ -14,15 +14,15 @@
             <img src="{{image}}" alt="{{name}}" class="w-18 h-18 rounded-full object-cover" />
         </div>
         <div class="grid grid-cols-1">
-            <h2 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative ">
+            <h2 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative  ">
                 Coctail
                 Name:{{name}}</h2>
-            <h2 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative ">
+            <h2 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative">
                 Recipe:{{recipe}}</h2>
             <ul>
                 {{#each ingredients}}
-                <li class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relatative
-                    font-gemunu">
+                <li class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center 
+                    font-gemunu relative">
                     {{ingredient}}-{{measurement}}</li>
                 {{/each}}
             </ul>
