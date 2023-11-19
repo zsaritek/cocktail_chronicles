@@ -58,3 +58,35 @@
 </div>
 {{/each}}
 </section> --}}
+
+
+
+
+
+
+<section class="relative" style="height: 1550px; background: url('/images/list.background.jpg') repeat; background-size: cover;">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-8 ">
+        {{#each myFavorites}}
+           
+            <div class="bg-black z-10 rounded-lg shadow-md p-3 max-w-xs mx-auto my-3">
+                <h1 class="text-cocktail_chronicles-grey text-base font-bold mb-1">{{name}}</h1>
+                <img src="{{image}}" alt="{{name}}" class="w-2/3 mb-1 rounded-lg">
+
+                <ul class="mb-1">
+                    <li class="text-cocktail_chronicles-grey text-xs">{{ingredient}} - {{measurement}}</li>
+                </ul>
+                <h2>{{name}}</h2>
+                <form method="POST" action="/favorite/removefavoritebyid">
+                    <input type="hidden" name="cocktailId" value="{{id}}">
+                    <button type="submit" class="bg-cocktail_chronicles-purple text-white py-1 px-2 rounded-md hover:bg-red-600 text-xs">
+                        Remove
+                    </button>
+                </form>
+            </div>
+            
+        {{/each}}
+    </div>
+    
+</section>
+
