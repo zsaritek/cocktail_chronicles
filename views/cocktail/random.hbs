@@ -1,6 +1,6 @@
 {{!-- random menu --}}
 
-<section class="relative">
+<section class="relative tracking-wider">
     <img src="/images/list.background.jpg" alt="Cocktail Background"
         class="absolute inset-0 w-full h-full object-cover z-0 opacity-95">
     <div class="container mx-auto p-10 relative z-10 flex flex-col items justify-center items-center">
@@ -13,12 +13,12 @@
         <div class="mx-auto mb-5">
             <img src="{{image}}" alt="{{name}}" class="w-18 h-18 rounded-full object-cover" />
         </div>
-        <div class="grid grid-cols-1">
-            <h2 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative  ">
+        <div class="grid grid-cols-1 tracking-wider">
+            <h1 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative  ">
                 Coctail
-                Name:{{name}}</h2>
-            <h2 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative">
-                Recipe:{{recipe}}</h2>
+                Name:{{name}}</h1>
+            <h1 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative">
+                Recipe:{{recipe}}</h1>
             <ul>
                 {{#each ingredients}}
                 <li class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center 
@@ -26,6 +26,13 @@
                     {{ingredient}}-{{measurement}}</li>
                 {{/each}}
             </ul>
+            <form method="POST" action="/favorite/addfavoritebyid" class="mt-2 mx-auto">
+                <input type="hidden" name="cocktailId" value="{{id}}">
+                <button type="submit"
+                    class="bg-black text-cocktail_chronicles-grey border divide-dotted py-2 px-3 rounded-md hover:bg-cocktail_chronicles-green text-sm tracking-wider">
+                    ADD TO MY FAVORITE LIST
+                </button>
+            </form>
         </div>
     </div>
 </section>

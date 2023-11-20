@@ -35,7 +35,8 @@ router.get("/list", isLoggedIn, async (req, res) => {
                 name: drink.strDrink
             }
         });
-        res.render("cocktail/list", { cocktails: data })
+        const currentUser = req.session.currentUser
+        res.render("cocktail/list", { cocktails: data, currentUser: currentUser }) // in order to show navbar in cocktail list hbs 
 
         console.log(data)
     } catch (err) {
@@ -43,47 +44,6 @@ router.get("/list", isLoggedIn, async (req, res) => {
     }
 })
 
-// router.get("/myfavorites", isLoggedIn, async (req, res, next) => {
-//     try {       
-//         const currentUser = req.session.currentUser;
-//         let user = await User.findOne({email: currentUser.email})
-//         const myFavorites = user.my_favorites;
-//         console.log(myFavorites)
-//         res.render('cocktail/my-favorites', {favorites: myFavorites})
-//     } catch (error) {
-//         next(error)
-//     }
-// } )
-
-
-// router.post("/addfavoritebyid", isLoggedIn, async (req, res, next) => {
-//     try {
-//         const id = req.body.cocktailId;
-//         const currentUser = req.session.currentUser;
-//         let user = await User.findOneAndUpdate({email: currentUser.email}, {$addToSet: {my_favorites: id}}, {new: true})
-//         res.redirect("/cocktail/myfavorites")
-//         console.log(user)
-
-//     } catch (error) {
-
-//     }
-// })
-
-
-// router.post("/removefavorite/:id",  async (req, res, next) => {
-//     try {
-//         console.log("test")
-//         const cocktailId = req.body.cocktailId;       
-//         const currentUser = req.session.currentUser;       
-//         let user = await User.findOne({ username: currentUser.username })
-//         console.log(user.my_favorites)
-//         user.my_favorites = user.my_favorites.filter(_id => _id !== cocktailId)
-//         await user.save()
-//         res.redirect("/cocktail/myfavorites")  
-//     } catch (error) {
-//         next(error)
-//     }
-// })
 
 router.get("/:id", isLoggedIn, async (req, res, next) => {
     try {
@@ -95,21 +55,8 @@ router.get("/:id", isLoggedIn, async (req, res, next) => {
         //response.data is ugly data. that is why we created more logical data to easily use 
         const cocktail = new Cocktail(cocktailResp.data.drinks[0])
         console.log("handsome data", cocktail)
-        /*
-        handsome data Cocktail {
-            id: '12452',
-            name: 'Victory Collins',
-            recipe: undefined,
-            image: 'https://www.thecocktaildb.com/images/media/drink/lx0lvs1492976619.jpg',
-            ingredients: [
-                { ingredient: 'Vodka', measurement: '1 1/2 oz ' },
-                { ingredient: 'Lemon juice', measurement: '3 oz ' },
-                { ingredient: 'Grape juice', measurement: '3 oz unsweetened ' },
-                { ingredient: 'Powdered sugar', measurement: '1 tsp ' },
-                { ingredient: 'Orange', measurement: '1 slice ' }
-            ]
-        }*/
         const { ...data } = cocktail;
+        data.currentUser = req.session.currentUser // in order to show navbar in details hbs
         res.render('cocktail/detail', data)
 
     } catch (error) {
