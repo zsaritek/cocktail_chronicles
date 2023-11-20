@@ -23,6 +23,10 @@ const userSchema = new Schema(
     },
     my_favorites: {
       type: [{ type: Schema.Types.ObjectId, ref: 'MyFavoriteCocktail' }]
+    },
+    imageUrl: {
+      type: String,
+      default: "https://res.cloudinary.com/dexnyholt/image/upload/v1700513062/cocktail_chronicles/default.jpg"
     }
   },
   {

@@ -4,7 +4,12 @@
   <div class=" container mx-auto p-10 relative z-10 flex flex-col items-center">
     <div class=" p-6 flex flex-col items-center">
       <h2 class="text-white text-2xl mb-10">Sign Up</h2>
-      <form action="/auth/signup" method="POST" class="flex flex-col items-center ">
+      <form action="/auth/signup" method="POST" class="flex flex-col items-center" enctype="multipart/form-data">
+
+        <label>
+          <input type="file" name="imageUrl">
+        </label>
+
         <label class="text-cocktail_chronicles-grey">
           <input type="text" name="username" placeholder="Your username"
             class="bg-cocktail_chronicles-purple  w-full md:w-64 text-cocktail_chronicles-grey rounded-lg p-2 mb-10 focus:bg-cocktail_chronicles-purple hover:bg-cocktail_chronicles-green transition-colors duration-300 ease-in-out outline-none" />

@@ -40,6 +40,9 @@
         </div>
         <div class="flex items-center space-x-4 tracking-wider lg:space-x-8">
           <a href="/auth/logout">Log Out</a>
+          {{!-- Image Profile Set Up --}}
+          <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="{{currentUser.imageUrl}}"
+            alt="Bordered avatar">
         </div>
       </nav>
       {{/if}}
