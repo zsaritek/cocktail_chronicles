@@ -52,14 +52,17 @@
 <section class="bg-black relative h-screen font-gemunu text-black">
   <div class="container mx-auto p-8 flex">
     <div class="max-w-md w-full mx-auto">
-      <h1 class="text-4xl text-center mb-12 font-thin">LOG IN TO YOUR ACCOUNT</h1>
 
       <div class="bg-black rounded-lg overflow-hidden shadow-2xl">
         <div class="p-8">
-          <form method="POST" class="" action="/auth/signup" onsubmit="return false;">
+          <form method="POST"  action="/auth/signup" enctype="multipart/form-data">
+
+            <label>
+              <input type="file" name="imageUrl">
+            </label>
 
             <div class="mb-5">
-              <label for="password" class="block mb-2 text-sm font-medium text-gray-600">Username</label>
+              <label for="username" class="block mb-2 text-sm font-medium text-gray-600">Username</label>
 
               <input type="text" name="username"
                 class="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none">
@@ -78,7 +81,7 @@
                 class="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none">
             </div>
 
-            <button
+            <button type="submit"
               class="w-full p-3 mt-4 bg-cocktail_chronicles-purple hover:bg-cocktail_chronicles-green text-white rounded shadow">SIGN
               UP</button>
             <a href="#" class="text-gray-600">Forgot password?</a>
