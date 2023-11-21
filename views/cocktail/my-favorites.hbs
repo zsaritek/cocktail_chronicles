@@ -1,4 +1,4 @@
-{{!-- my-favorite menu --}}
+{{!-- my-favorite menu
 <section class="relative tracking-wider background">
      <div class="overlay"></div>
     <div class="grid grid-cols-3 mx-20 ">
@@ -54,6 +54,60 @@
     width: 100%;
     height: 100%;
     background-color: rgba(192, 192, 192, 0.05); /* Adjust opacity here */
+} --}}
+
+
+
+
+
+
+{{!-- cocktail-list (copy page from favorite cocktail--}}
+{{!-- cocktail-list (copy page from favorite cocktail--}}
+<section class="relative tracking-wider bg-scroll">
+  <div class="overlay"></div>
+  <div class="bg-fixed bg-cover " style="background-image: url('/images/list.background.jpg'); min-height: 1000px;">
+  <div class="grid grid-cols-3 mx-20 ">
+    {{#each favorites}}
+    <div
+      class="bg-black flex flex-col items-center z-10 rounded-3xl shadow-md lg:p-5 md:p-3 sm:p-0 max-w-xs mx-auto my-5 font gemunu tracking-wider">
+      <h1 class="text-cocktail_chronicles-grey text-base font-bold mb-4">{{name}}</h1>
+      <img src="{{image}}" alt="{{name}}" class="w-2/3 mb-4 rounded-lg">
+      <form method="GET" action="/cocktail/{{id}}" class="mt-auto">
+                <input type="hidden" name="cocktailId" value="{{id}}">
+                <button
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                    <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        CLICK FOR WHOLE RECIPE
+                    </span>
+                </button>
+            </form>
+            <form method="POST" action="/favorite/removefavoritebyid" class="mt-auto">
+                <input type="hidden" name="cocktailId" value="{{id}}">
+                <button
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-purple-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-600 dark:focus:ring-green-800">
+                    <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        REMOVE FROM MY FAVORITE LIST
+                    </span>
+                </button>
+            </form>
+    </div>
+    {{/each}}
+  </div>
+  </div>
+</section>
+
+
+<style>
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(239, 239, 239, 0.10); /* Adjust opacity here */
 }
 
 
