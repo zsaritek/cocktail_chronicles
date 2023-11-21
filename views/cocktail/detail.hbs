@@ -7,7 +7,7 @@
 
         <div class="text-center mb-8 col-span-3 md:col-span-2 lg:col-span-1 rounded-md max-w-3xl">
             <h1 class="text-3xl text-center font-bold uppercase text-cocktail_chronicles-grey">
-                Special For Today
+                RECIPE
             </h1>
         </div>
         <div class="mx-auto mb-5">
@@ -26,13 +26,6 @@
                     {{ingredient}}-{{measurement}}</li>
                 {{/each}}
             </ul>
-            <form method="POST" action="/favorite/addfavoritebyid" class="mt-2 mx-auto">
-                <input type="hidden" name="cocktailId" value="{{id}}">
-                <button type="submit"
-                    class="bg-black text-cocktail_chronicles-grey border divide-dotted py-2 px-3 rounded-md hover:bg-cocktail_chronicles-green text-sm tracking-wider">
-                    ADD TO MY FAVORITE LIST
-                </button>
-            </form>
         </div>
     </div>
 </section>
