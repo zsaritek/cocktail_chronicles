@@ -790,10 +790,6 @@ a {
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
 }
 
-.divide-dotted > :not([hidden]) ~ :not([hidden]) {
-  border-style: dotted;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
@@ -826,10 +822,6 @@ a {
   border-width: 1px;
 }
 
-.border-dotted {
-  border-style: dotted;
-}
-
 .border-transparent {
   border-color: transparent;
 }
@@ -859,13 +851,13 @@ a {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-transparent {
-  background-color: transparent;
 }
 
 .bg-gradient-to-b {
@@ -968,6 +960,11 @@ a {
   padding-right: 1rem;
 }
 
+.px-40 {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
@@ -996,26 +993,6 @@ a {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.px-20 {
-  padding-left: 5rem;
-  padding-right: 5rem;
-}
-
-.px-40 {
-  padding-left: 10rem;
-  padding-right: 10rem;
 }
 
 .pl-10 {
@@ -1064,11 +1041,6 @@ a {
   line-height: 2.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1085,10 +1057,6 @@ a {
 
 .font-medium {
   font-weight: 500;
-}
-
-.font-thin {
-  font-weight: 100;
 }
 
 .uppercase {
@@ -1250,11 +1218,6 @@ a {
 .hover\:bg-cocktail_chronicles-purple:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(129 73 166 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-cocktail_chronicles-sgreen:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(4 191 173 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-yellow-300:hover {
