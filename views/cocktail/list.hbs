@@ -10,9 +10,12 @@
         <img src="{{image}}" alt="{{name}}" class="w-2/3 mb-4 rounded-lg">
         <form method="GET" action="/cocktail/{{id}}" class="mt-auto">
           <input type="hidden" name="cocktailId" value="{{id}}">
-          <button type="submit"
-            class="bg-black text-cocktail_chronicles-grey border border-dotted py-2 px-3 rounded-md hover:bg-cocktail_chronicles-sgreen text-sm font-gemunu tracking-wider">
-            Click For Whole Recipe
+          <button
+            class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+            <span
+              class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              CLICK FOR WHOLE RECIPE
+            </span>
           </button>
         </form>
       </div>
