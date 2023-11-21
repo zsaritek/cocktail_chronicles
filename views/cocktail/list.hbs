@@ -1,20 +1,34 @@
 {{!-- cocktail-list (copy page from favorite cocktail--}}
-<section class="relative tracking-wider"
-  style="height: 1900px; background: url('/images/list.background.jpg') repeat; 	background-attachment: scroll; background-size: cover;">
-  <div class="grid grid-cols-3 mx-20 ">
-    {{#each cocktails}}
-    <div
-      class="bg-black flex flex-col items-center z-10 rounded-3xl shadow-md lg:p-5 md:p-3 sm:p-0 max-w-xs mx-auto my-5 font gemunu tracking-wider">
-      <h1 class="text-cocktail_chronicles-grey text-base font-bold mb-4">{{name}}</h1>
-      <img src="{{image}}" alt="{{name}}" class="w-2/3 mb-4 rounded-lg">
-      <form method="GET" action="/cocktail/{{id}}" class="mt-auto">
-        <input type="hidden" name="cocktailId" value="{{id}}">
-        <button type="submit"
-          class="bg-black text-cocktail_chronicles-grey border border-dotted py-2 px-3 rounded-md hover:bg-cocktail_chronicles-sgreen text-sm font-gemunu tracking-wider">
-          Click For Whole Recipe
-        </button>
-      </form>
+<section class="relative tracking-wider bg-scroll">
+  <div class="overlay"></div>
+  <div class="bg-fixed bg-cover" style="background-image: url('/images/list.background.jpg')">
+    <div class="grid grid-cols-3 mx-20 ">
+      {{#each cocktails}}
+      <div
+        class="bg-black flex flex-col items-center z-10 rounded-3xl shadow-md lg:p-5 md:p-3 sm:p-0 max-w-xs mx-auto my-5 font gemunu tracking-wider">
+        <h1 class="text-cocktail_chronicles-grey text-base font-bold mb-4">{{name}}</h1>
+        <img src="{{image}}" alt="{{name}}" class="w-2/3 mb-4 rounded-lg">
+        <form method="GET" action="/cocktail/{{id}}" class="mt-auto">
+          <input type="hidden" name="cocktailId" value="{{id}}">
+          <button type="submit"
+            class="bg-black text-cocktail_chronicles-grey border border-dotted py-2 px-3 rounded-md hover:bg-cocktail_chronicles-sgreen text-sm font-gemunu tracking-wider">
+            Click For Whole Recipe
+          </button>
+        </form>
+      </div>
+      {{/each}}
     </div>
-    {{/each}}
   </div>
 </section>
+
+
+<style>
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(192, 192, 192, 0.05);
+  }
+</style>
