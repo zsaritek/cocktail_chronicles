@@ -35,11 +35,11 @@ router.post("/addfavoritebyid", isLoggedIn, async (req, res, next) => {
         let user = await User.findOne({ email: currentUser.email })
         console.log(user)
         let user_fav = user.my_favorites
-        if (user_fav.length < 11) {
+        if (user_fav.length < 12) {
             let fav = await User.findOneAndUpdate({ email: currentUser.email },
                 { $addToSet: { my_favorites: c._id } }, { new: true })
         } else {
-            return res.status(400).json({ message: "You can not add more than 10 cocktails." });
+            return res.status(404).render("favorite-limit");
         }
         res.status(204).end();
         console.log(user_fav.length)
