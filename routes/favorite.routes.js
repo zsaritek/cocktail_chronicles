@@ -16,7 +16,6 @@ router.get("/myfavorites", isLoggedIn, async (req, res, next) => {
         const currentUser = req.session.currentUser;
         let user = await User.findOne({ email: currentUser.email }).populate('my_favorites')
         const myFavorites = user.my_favorites;
-
         res.render('cocktail/my-favorites', { favorites: myFavorites, currentUser: currentUser }) // current user added to show navbar in my fav page
     } catch (error) {
         next(error)
@@ -33,7 +32,6 @@ router.post("/addfavoritebyid", isLoggedIn, async (req, res, next) => {
         const c = await Favorite.findOneAndUpdate({ id: cocktail.id }, update, { upsert: true, new: true, setDefaultsOnInsert: true });
         let currentUser = req.session.currentUser;
         let user = await User.findOne({ email: currentUser.email })
-        console.log(user)
         let user_fav = user.my_favorites
         if (user_fav.length < 12) {
             let fav = await User.findOneAndUpdate({ email: currentUser.email },
@@ -42,7 +40,6 @@ router.post("/addfavoritebyid", isLoggedIn, async (req, res, next) => {
             return res.status(404).render("favorite-limit");
         }
         res.redirect("/favorite/myfavorites")
-        console.log(user_fav.length)
     } catch (error) {
         next(error)
     }
@@ -53,14 +50,11 @@ router.post("/addfavoritebyid", isLoggedIn, async (req, res, next) => {
 router.post("/removefavoritebyid", isLoggedIn, async (req, res, next) => {
     try {
         const cocktailId = req.body.cocktailId;
-        console.log(cocktailId)
         const currentUser = req.session.currentUser;
         let favorite = await Favorite.findOne({ id: cocktailId })
         const object_id = favorite._id
         let user = await User.findOne({ username: currentUser.username })
-        console.log(user.my_favorites)
         user.my_favorites = user.my_favorites.filter(favId => !favId.equals(object_id))
-        console.log(user.my_favorites)
         await user.save()
 
         res.redirect("/favorite/myfavorites")

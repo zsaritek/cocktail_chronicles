@@ -17,6 +17,10 @@ router.get("/random", isLoggedIn, async (req, res, next) => {
         const randomCocktail = new Cocktail(randomC.data.drinks[0])
         const { ...data } = randomCocktail;
         data.currentUser = req.session.currentUser // in order to show navbar in random page
+        // step 1 - fetch user
+        // step 2 - populate my favorite list
+        // step 3-filter through my favorite list with cocktail id
+        // step 4- if filter cocktail is empty,existing is false otherwise is true
         let user = await User.findOne(
             { username: req.session.currentUser.username }
         ).populate("my_favorites")
@@ -46,8 +50,6 @@ router.get("/list", isLoggedIn, async (req, res) => {
         });
         const currentUser = req.session.currentUser
         res.render("cocktail/list", { cocktails: data, currentUser: currentUser }) // in order to show navbar in cocktail list hbs 
-
-        console.log(data)
     } catch (err) {
         next(err)
     }
@@ -67,7 +69,6 @@ router.get("/:id", isLoggedIn, async (req, res, next) => {
         let favorites = user.my_favorites.filter(cocktail => {
             return cocktail.id === cocktailId
         })
-
         if (favorites.length > 0) {
             data.existing = true;
         } else {
