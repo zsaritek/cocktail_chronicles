@@ -26,16 +26,10 @@ const favoritesSchema = new Schema(
     ingredients: {
       type: []
     }
-
-    // users: {
-    //     type: [{type: Schema.Types.ObjectId, ref: 'User'}]
-    // }
-
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
-
   }
 );
 

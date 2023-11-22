@@ -5,7 +5,7 @@ class Cocktail {
         this.recipe = cocktailData.strInstructions;
         this.image = cocktailData.strDrinkThumb;
         this.ingredients = [];
-        for (let i = 1; i <= 15; i++) {
+        for (let i = 1; i <= 12; i++) {
             const ingredient_element = cocktailData[`strIngredient${i}`];
             const measure_element = cocktailData[`strMeasure${i}`]
             if (ingredient_element) {

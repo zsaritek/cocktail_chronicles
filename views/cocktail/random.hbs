@@ -2,7 +2,7 @@
 
 <section class="relative tracking-wider">
     <img src="/images/list.background.jpg" alt="Cocktail Background"
-        class="absolute inset-0 w-full h-full object-cover z-0 opacity-95">
+        class="absolute inset-0 w-full h-full object-cover z-0 opacity-90">
     <div class="container mx-auto p-10 relative z-10 flex flex-col items justify-center items-center">
 
         <div class="text-center mb-8 col-span-3 md:col-span-2 lg:col-span-1 rounded-md max-w-3xl">
@@ -13,29 +13,46 @@
         <div class="mx-auto mb-5">
             <img src="{{image}}" alt="{{name}}" class="w-18 h-18 rounded-full object-cover" />
         </div>
+
         <div class="grid grid-cols-1 tracking-wider">
-            <h1 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative  ">
+            <h1 class="bg-black text-cocktail_chronicles-grey p-6 shadow text-center relative  ">
                 Coctail
                 Name:{{name}}</h1>
-            <h1 class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center relative">
+            <h1 class="bg-black text-cocktail_chronicles-grey p-6 shadow text-center relative">
                 Recipe:{{recipe}}</h1>
             <ul>
                 {{#each ingredients}}
-                <li class="bg-black text-cocktail_chronicles-grey p-6 rounded-lg shadow text-center 
+                <li class="bg-black text-cocktail_chronicles-grey p-6 shadow text-center 
                     font-gemunu relative tracking-wider">
                     {{ingredient}}-{{measurement}}</li>
                 {{/each}}
             </ul>
-            <form method="POST" action="/favorite/addfavoritebyid" class="mt-2 mx-auto">
+
+            {{#unless existing}}
+            <form method="POST" action="/favorite/addfavoritebyid" class="mt-auto text-center">
                 <input type="hidden" name="cocktailId" value="{{id}}">
                 <button
-                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                    class="relative inline-flex items-center justify-center mx-auto mt-2 p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 ">
                     <span
-                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        ADD TO MY FAVORITES LIST
+                        class="relative px-20 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 tracking-wider">
+                        ADD TO MY FAVORITE LIST
                     </span>
                 </button>
             </form>
+            {{/unless}}
+
+            {{#if existing}}
+            <form method="POST" action="/favorite/removefavoritebyid" class="mt-auto text-center">
+                <input type="hidden" name="cocktailId" value="{{id}}">
+                <button
+                    class="relative inline-flex items-center justify-center mx-auto mt-2 p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-purple-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-600 dark:focus:ring-green-800">
+                    <span
+                        class="relative px-20 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 tracking-wider">
+                        REMOVE FROM MY FAVORITE LIST
+                    </span>
+                </button>
+            </form>
+            {{/if}}
         </div>
     </div>
 </section>

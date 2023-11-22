@@ -16,7 +16,7 @@ router.get("/myfavorites", isLoggedIn, async (req, res, next) => {
         const currentUser = req.session.currentUser;
         let user = await User.findOne({ email: currentUser.email }).populate('my_favorites')
         const myFavorites = user.my_favorites;
-        
+
         res.render('cocktail/my-favorites', { favorites: myFavorites, currentUser: currentUser }) // current user added to show navbar in my fav page
     } catch (error) {
         next(error)
@@ -41,7 +41,7 @@ router.post("/addfavoritebyid", isLoggedIn, async (req, res, next) => {
         } else {
             return res.status(404).render("favorite-limit");
         }
-        res.status(204).end();
+        res.redirect("/favorite/myfavorites")
         console.log(user_fav.length)
     } catch (error) {
         next(error)

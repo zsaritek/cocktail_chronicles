@@ -15,10 +15,19 @@ router.get("/random", isLoggedIn, async (req, res, next) => {
     try {
         const randomC = await apiService.getRandomCocktail();
         const randomCocktail = new Cocktail(randomC.data.drinks[0])
-        console.log(randomCocktail)
         const { ...data } = randomCocktail;
         data.currentUser = req.session.currentUser // in order to show navbar in random page
-
+        let user = await User.findOne(
+            { username: req.session.currentUser.username }
+        ).populate("my_favorites")
+        let favorites = user.my_favorites.filter(cocktail => {
+            return cocktail.id === randomCocktail.id
+        })
+        if (favorites.length > 0) {
+            data.existing = true;
+        } else {
+            data.existing = false;
+        }
         res.render('cocktail/random', data)
     } catch (err) {
         next(err)
@@ -47,18 +56,24 @@ router.get("/list", isLoggedIn, async (req, res) => {
 
 router.get("/:id", isLoggedIn, async (req, res, next) => {
     try {
-        const cocktailResp = await apiService.getCocktailById(req.params.id)
-        // console.log("raw response", cocktailResp) 
-        // console.log("---------")
-        // console.log("response.data", cocktailResp.data)
-
-        //response.data is ugly data. that is why we created more logical data to easily use 
+        const cocktailId = req.params.id
+        const cocktailResp = await apiService.getCocktailById(cocktailId)
         const cocktail = new Cocktail(cocktailResp.data.drinks[0])
-        console.log("handsome data", cocktail)
         const { ...data } = cocktail;
         data.currentUser = req.session.currentUser // in order to show navbar in details hbs
-        res.render('cocktail/detail', data)
+        let user = await User.findOne(
+            { username: req.session.currentUser.username }
+        ).populate("my_favorites")
+        let favorites = user.my_favorites.filter(cocktail => {
+            return cocktail.id === cocktailId
+        })
 
+        if (favorites.length > 0) {
+            data.existing = true;
+        } else {
+            data.existing = false;
+        }
+        res.render('cocktail/detail', data)
     } catch (error) {
         next(error)
     }

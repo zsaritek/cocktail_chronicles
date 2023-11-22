@@ -50,16 +50,29 @@
 </style> --}}
 
 <section class="bg-black relative h-screen font-gemunu text-black">
+  <h2 class="text-cocktail_chronicles-grey text-center tracking-wider">"Step into the world of mixology with
+    open arms
+    as we
+    welcome you to the Cocktail Chronicles Club"</h2>
   <div class="container mx-auto p-8 flex">
     <div class="max-w-md w-full mx-auto">
 
       <div class="bg-black rounded-lg overflow-hidden shadow-2xl">
         <div class="p-8">
-          <form method="POST"  action="/auth/signup" enctype="multipart/form-data">
+          <form method="POST" action="/auth/signup" enctype="multipart/form-data">
 
-            <label>
+            {{!-- <label class="text-cocktail_chronicles-grey">
               <input type="file" name="imageUrl">
-            </label>
+            </label> --}}
+            <div class="mb-5">
+              <label for="image" class="block mb-2 text-cocktail_chronicles-grey"></label>
+              <input type="file" name="image" id="image" class="hidden" onchange="displayImage(this)">
+              <label for="image"
+                class="cursor-pointer block text-center border border-cocktail_chronicles-pink p-2 hover:underline text-cocktail_chronicles-sgreen ">
+                Select Photo
+              </label>
+              <div id="image-preview" class="mt-2"></div>
+            </div>
 
             <div class="mb-5">
               <label for="username" class="block mb-2 text-sm font-medium text-gray-600">Username</label>
