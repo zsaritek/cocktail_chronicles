@@ -14,7 +14,34 @@
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="/stylesheets/style.css" rel="stylesheet">
+  <script>
 
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const burger = document.getElementById('hamburger-menu');
+      const menu = document.getElementById('mobile-menu');
+      if (burger && menu) {
+        burger.addEventListener('click', function () {
+          menu.classList.toggle('hidden');
+        });
+      }
+
+      const close = document.querySelectorAll('.navbar-close');
+      const backdrop = document.querySelectorAll('.navbar-backdrop');
+
+      if (close.length > 0 && menu) {
+        close[0].addEventListener('click', function () {
+          menu.classList.toggle('hidden');
+        });
+      }
+
+      if (backdrop.length > 0 && menu) {
+        backdrop[0].addEventListener('click', function () {
+          menu.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
   <title>{{appTitle}}</title>
 </head>
 
@@ -29,7 +56,44 @@
         class="pl-7 md:pl-0 lg:text-7xl font-bold text-transparent bg-gradient-to-r bg-clip-text from-cocktail_chronicles-purple to-cocktail_chronicles-green">Ↄ|Ↄ</a>
       <!-- nav bar -->
       {{#if currentUser}}
-      <nav class="hidden md:flex justify-between flex-1 ">
+      <div id="hamburger-menu" class="block md:hidden pr-4">
+        <div class="space-y-1 cursor-pointer">
+          <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
+          <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
+          <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
+        </div>
+      </div>
+      <div id="mobile-menu" class="relative z-50 hidden">
+        <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+        <nav
+          class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-black border-r overflow-y-auto">
+          <div class="flex items-center mb-8">
+            <button class="navbar-close">
+              <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <div>
+            <ul>
+              <li class="mb-1">
+                <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                  href="/favorite/myfavorites">My Favorites</a>
+              </li>
+              <li class="mb-1">
+                <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                  href="/cocktail/list">Cocktail List</a>
+              </li>
+              <li class="mb-1">
+                <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                  href="/cocktail/random">Random Cocktail</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <nav class="hidden md:flex justify-between flex-1">
         <div class="flex items-center tracking-wider lg:text-lg space-x-4 lg:space-x-8">
           <a href="/favorite/myfavorites"
             class="overflow-hidden rounded-lg group hover:bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 transition duration-500">My
@@ -37,7 +101,7 @@
           <a href="/cocktail/list"
             class="overflow-hidden rounded-lg group hover:bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 transition duration-500">Cocktail
             List</a>
-          <a href=" /cocktail/random "
+          <a href="/cocktail/random"
             class="overflow-hidden rounded-lg group hover:bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 transition duration-500">Random
             Cocktail</a>
         </div>
@@ -70,16 +134,8 @@
   {{{body}}}
 
   <script src="/js/script.js"></script>
-  <!-- mobile menu including small screen -->
-  <div class="block md:hidden pr-4">
-    <div class="space-y-1 cursor-pointer">
-      <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
-      <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
-      <div class="bg-cocktail_chronicles-grey w-8 h-1 rounded-full"></div>
-    </div>
-  </div>
 
-  <footer class="bg-black md:flex md:items-center md:justify-between shadow xl:p-2 flex-1 ">
+  <footer class="bg-black md:flex md:items-center md:justify-between shadow xl:p-2 xl:mb-4 flex-1 ">
     <p class="text-cocktail_chronicles-grey font-gemunu text-sm flex-none">&copy; 2023 The Cocktail Chronicles. All
       rights
       reserved.</p>
