@@ -23,7 +23,7 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 // POST /auth/signup
-router.post("/signup", isLoggedOut, uploader.single("imageUrl"), (req, res) => {
+router.post("/signup", isLoggedOut, uploader.single("image"), (req, res) => {
   const { username, email, password } = req.body;
   // cloudinary image set up
   let imageUrl

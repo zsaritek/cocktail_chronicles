@@ -1,4 +1,4 @@
-      The Cocktail Chronicles
+The Cocktail Chronicles
 
 Welcome to "The Cocktail Chronicles" project! This project combines our passion for cocktails with our technical skills. Explore a variety of cocktails, save your favorites, and discover new recipes in this server-side rendering application.
 
@@ -93,3 +93,4 @@ Project Planning
 
 Created By
 This project was created with love and dedication by "Zeynep Sariteke" and "Sebastian Schwarz". Cheers to good times and great cocktails! 🍹🎉
+
