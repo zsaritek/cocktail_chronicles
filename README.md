@@ -1,6 +1,6 @@
 The Cocktail Chronicles
 
-Welcome to "The Cocktail Chronicles" project! This project combines our passion for cocktails with our technical skills. Explore a variety of cocktails, save your favorites, and discover new recipes in this server-side rendering application.
+Welcome to "The Cocktail Chronicles" project! This project combines our passion for cocktails with our technical skills. Explore a variety of cocktails, save your favorites, and discover new recipes in this application.
 
 -Table of Contents
 -Features
