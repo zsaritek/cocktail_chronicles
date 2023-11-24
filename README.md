@@ -61,7 +61,7 @@ APIs and Databases
 -MongoDB for storing user and favorite data.
 
 Styling
-We used Tailwind CSS for a clean and responsive design applied to Handlebars files.
+We used Tailwind CSS Mobile Friendly for a clean and responsive design applied to Handlebars files.
 
 Middleware
 cloudinary.config.js: Configuration for Cloudinary integration.
